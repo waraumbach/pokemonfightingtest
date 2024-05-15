@@ -38,12 +38,7 @@ const RandomFightingPokemon = () => {
           <img src={pokemon.sprites.front_default} alt={pokemon.name} />
           <p>Height: {pokemon.height}</p>
           <p>Weight: {pokemon.weight}</p>
-          <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-          <p>Height: {pokemon.height}</p>
-          <p>Weight: {pokemon.weight}</p>
-
-          <p>Height: {pokemon.height}</p>
-          <p>Weight: {pokemon.weight}</p>
+          
         </div>
       )}
     </div>

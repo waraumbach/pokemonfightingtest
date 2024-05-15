@@ -8,6 +8,7 @@ import RandomFightingPokemon from './components/RandomFightingPokemon';
 import PokemonDetail from './components/PokemonDetail';
 import Battle from './components/Battle';
 
+
 const App = () => {
   return (
     <Router>
@@ -17,6 +18,8 @@ const App = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/fighting-pokemon">Fighting Pokémon</Link></li>
             <li><Link to="/random-fighting-pokemon">Random Fighting Pokémon</Link></li>
+            
+
           </ul>
         </nav>
         <Routes>
