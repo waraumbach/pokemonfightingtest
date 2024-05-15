@@ -1,36 +1,40 @@
 
-import { useState } from "react";
-import "./App.css";
-import Pokemon from "./Pokemon.jsx";
-import Blastoise from "./images/blastoise.png";
-import Charizard from "./images/charizard.png";
+// src/App.jsx
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import FightingPokemon from './components/FightingPokemon';
+import RandomFightingPokemon from './components/RandomFightingPokemon';
+import PokemonDetail from './components/PokemonDetail';
+import Battle from './components/Battle';
 
 const App = () => {
-  const [charizardHP, setCharizardHP] = useState(120);
-  const [blastoiseHP, setBlastoiseHP] = useState(100);
-
-  const blastoiseAttack = () => {
-    setCharizardHP(charizardHP - 30)
-  }
-
-  const charizardAttack = () => {
-    setBlastoiseHP(blastoiseHP - 25)
-  }
-
-  const container = document.querySelector('.container')
-
-  if(charizardHP <= 0) {
-    container.innerHTML = 'Blastoise Wins!'
-  }
-
-  if(blastoiseHP <= 0) {
-    container.innerHTML = 'Charizard Wins!'
-  }
-
   return (
-    <div className="container">
-      <Pokemon name="Blastoise" img={Blastoise} hp={blastoiseHP} attack={blastoiseAttack}/>
-      <Pokemon name="Charizard" img={Charizard} hp={charizardHP} attack={charizardAttack}/>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/fighting-pokemon">Fighting Pokémon</Link></li>
+            <li><Link to="/random-fighting-pokemon">Random Fighting Pokémon</Link></li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/fighting-pokemon" element={<FightingPokemon />} />
+          <Route path="/random-fighting-pokemon" element={<RandomFightingPokemon />} />
+          <Route path="/pokemon/:name" element={<PokemonDetail />} />
+          <Route path="/battle/:name" element={<Battle />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+};
+
+const Home = () => {
+  return (
+    <div>
+      <h1>Welcome to the Pokémon Info App</h1>
     </div>
   );
 };
